@@ -1,6 +1,6 @@
 # MassaTechPi
 
-Projeto: MassaTech
+Projeto: MassaTechPI 2 Semestre
 
 Participantes: João Gabriel de Lima, João Vitor Schumaher Zangerolamo, Diogo Sebanico Santos, Murilo Dourado e Pedro Henrique Albertine Subrinho, Lorenzo Gomes, Gustavo Pereira Silva.
 
