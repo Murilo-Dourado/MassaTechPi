@@ -2,7 +2,7 @@
 
 Projeto: MassaTech
 
-Participantes: João Gabriel de Lima, João Vitor Schumaher Zangerolamo, Diogo Sebanico Santos, Murilo Dourado e Pedro Henrique Albertine Subrinho, Lorenzo Gomes.
+Participantes: João Gabriel de Lima, João Vitor Schumaher Zangerolamo, Diogo Sebanico Santos, Murilo Dourado e Pedro Henrique Albertine Subrinho, Lorenzo Gomes, Gustavo Pereira Silva.
 
 Identificação da ODS: ODS 8 (Trabalho decente e crescimento econômico) e ODS 9 (industria, inovação e infraestrutura).
 
