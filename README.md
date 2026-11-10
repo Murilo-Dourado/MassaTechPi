@@ -8,7 +8,7 @@ Identificação da ODS: ODS 8 (Trabalho decente e crescimento econômico) e ODS 
 
 Proposta de processos do nosso sistema:
 
-Etapa do Cliente
+Etapa do Cliente 
 O processo começa no lado do cliente, onde ele interage com a plataforma de pedidos:
 
 Cadastro e Acesso: O cliente realiza o seu cadastro e faz o login no sistema.
