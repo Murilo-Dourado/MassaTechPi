@@ -6,13 +6,19 @@
   <meta name="description" content="Sabor & Massa - Peça sua pizza favorita com entrega rápida.">
   <title>Sabor &amp; Massa | Cardápio</title>
 
+  <!-- Fonte Poppins (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos da aplicação -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- =====================================================================
+       HEADER / NAVBAR FIXO
+       ===================================================================== -->
   <header class="cabecalho">
     <div class="cabecalho__conteudo">
       <a class="logo" href="index.html">🍕 Sabor &amp; Massa</a>
@@ -28,13 +34,38 @@
     </div>
   </header>
 
+  <!-- =====================================================================
+       BARRA DE CATEGORIAS (Rolagem Horizontal estilo iFood)
+       ===================================================================== -->
+  <nav class="categorias" aria-label="Categorias do cardápio">
+    <ul class="categorias__lista">
+      <li><a class="categorias__link ativo" href="#mais-pedidos"><span aria-hidden="true">♥</span> Mais pedidos</a></li>
+      <li><a class="categorias__link" href="#pizzas-salgadas"><span aria-hidden="true">🍕</span> Pizzas Salgadas</a></li>
+      <li><a class="categorias__link" href="#pizzas-doces"><span aria-hidden="true">🍫</span> Pizzas Doces</a></li>
+      <li><a class="categorias__link" href="#bebidas"><span aria-hidden="true">🥤</span> Bebidas</a></li>
+    </ul>
+  </nav>
+
+  <!-- =====================================================================
+       CONTEÚDO PRINCIPAL
+       ===================================================================== -->
   <main class="conteudo">
-    <div class="boas-vindas">
-      <h1>Bem-vindo à Sabor &amp; Massa!</h1>
-      <p>Em breve o cardápio completo estará disponível aqui.</p>
-    </div>
+
+    <!-- BANNER PROMOCIONAL -->
+    <section class="banner" aria-labelledby="banner-titulo">
+      <span class="banner__selo">Oferta do dia</span>
+      <h1 class="banner__titulo" id="banner-titulo">Duas pizzas grandes por R\$ 89,90</h1>
+      <p class="banner__texto">
+        Escolha dois sabores salgados e ganhe uma Coca-Cola 2L. Válido para pedidos feitos hoje, até as 23h.
+      </p>
+      <a class="banner__cta" href="#pizzas-salgadas">Ver pizzas salgadas</a>
+    </section>
+
   </main>
 
+  <!-- =====================================================================
+       FOOTER / RODAPÉ
+       ===================================================================== -->
   <footer class="rodape">
     <div class="rodape__conteudo">
       <div>

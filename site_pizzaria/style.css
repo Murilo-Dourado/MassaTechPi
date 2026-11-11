@@ -201,3 +201,151 @@ ul {
     font-size: 0.92rem;
   }
 }
+
+/* ==========================================================================
+   05. BARRA DE CATEGORIAS (estilo iFood)
+   Fica grudada logo abaixo do header fixo.
+   ========================================================================== */
+.categorias {
+  position: sticky;
+  top: var(--altura-header);
+  z-index: 90;
+  background-color: var(--superficie);
+  border-bottom: 1px solid var(--borda);
+}
+
+.categorias__lista {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;                 /* rolagem horizontal */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;            /* Firefox */
+}
+
+.categorias__lista::-webkit-scrollbar {
+  display: none;                    /* Chrome, Safari e Edge */
+}
+
+.categorias__link {
+  position: relative;
+  flex: 0 0 auto;                   /* impede encolhimento das abas */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: var(--altura-categorias);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* Linha indicadora colorida sob a aba selecionada */
+.categorias__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background-color: var(--cor-principal);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.categorias__link:hover,
+.categorias__link.ativo {
+  color: var(--cor-principal);
+}
+
+.categorias__link:hover::after,
+.categorias__link.ativo::after {
+  transform: scaleX(1);
+}
+
+
+/* ==========================================================================
+   08. BANNER PROMOCIONAL
+   ========================================================================== */
+.banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: var(--raio-lg);
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff4757 0%, #ff6b4a 55%, #ffa502 100%);
+  box-shadow: 0 8px 24px rgba(47, 54, 64, 0.14);
+  margin-top: 1rem;
+}
+
+.banner::after {
+  content: '🍕';
+  position: absolute;
+  right: -0.5rem;
+  bottom: -1.5rem;
+  font-size: 8rem;
+  line-height: 1;
+  opacity: 0.25;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.banner__selo {
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.22);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.banner__titulo {
+  font-size: 1.5rem;
+  max-width: 18ch;
+}
+
+.banner__texto {
+  max-width: 38ch;
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+
+.banner__cta {
+  position: relative;
+  z-index: 1;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--raio-sm);
+  background-color: #ffffff;
+  color: var(--cor-principal-escura);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.banner__cta:hover {
+  transform: translateY(-2px);
+}
+
+/* Ajustes de Media Query para telas maiores */
+@media (min-width: 600px) {
+  .banner {
+    padding: 2rem;
+  }
+  .banner__titulo {
+    font-size: 1.9rem;
+  }
+}
+
+@media (min-width: 720px) {
+  .categorias__lista {
+    padding: 0 1.5rem;
+  }
+}
