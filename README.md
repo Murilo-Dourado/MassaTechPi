@@ -1,40 +1,70 @@
-# MassaTechPi
+# MassaTeech
 
-Projeto: MassaTechPI 2 Semestre
+Site para pizzaria com **cardápio online** e **acompanhamento da localização do entregador**. O projeto surgiu de um problema real: o dono da pizzaria tinha dificuldade para enviar o cardápio aos clientes pelo WhatsApp.
 
-Participantes: João Gabriel de Lima, João Vitor Schumaher Zangerolamo, Diogo Sebanico Santos, Murilo Dourado e Pedro Henrique Albertine Subrinho, Lorenzo Gomes, Gustavo Pereira Silva.
+**Projeto:** MassaTechPI, 2º semestre
 
-Identificação da ODS: ODS 8 (Trabalho decente e crescimento econômico) e ODS 9 (industria, inovação e infraestrutura).
+## Participantes
 
-Proposta de processos do nosso sistema:
+- João Gabriel de Lima
+- João Vitor Schumaher Zangerolamo
+- Diogo Sebanico Santos
+- Murilo Dourado
+- Pedro Henrique Albertine Subrinho
+- Lorenzo Gomes
+- Gustavo Pereira Silva
 
-Etapa do Cliente 
-O processo começa no lado do cliente, onde ele interage com a plataforma de pedidos:
+## Objetivos de Desenvolvimento Sustentável (ODS)
 
-Cadastro e Acesso: O cliente realiza o seu cadastro e faz o login no sistema.
-Seleção: Ele faz a abertura do cardápio e realiza a escolha do pedido.
-Notificação: O pedido é realizado e uma notificação é enviada via WhatsApp.
-Etapa de Preparo
-Após o envio do pedido, a operação interna do estabelecimento entra em ação:
+- **ODS 8:** Trabalho decente e crescimento econômico
+- **ODS 9:** Indústria, inovação e infraestrutura
 
-Cozinha: O atendente repassa o pedido para a cozinha, que dá início ao preparo.
-Verificação de Status: O sistema verifica se o pedido está pronto.
-Caso não esteja, é necessário verificar o andamento com a cozinha.
-Quando o pedido fica pronto, o status é atualizado para "para entrega".
-Etapa de Logística e Entrega
-Com o pedido pronto, o fluxo direciona à operação para a entrega:
+## O que o sistema faz
 
-Disponibilidade do Motoboy: O sistema verifica se há motoboy disponível. Se não houver, o sistema entra em espera ("Aguardar motoboy").
+- Exibe o cardápio da pizzaria diretamente no site.
+- Permite ao cliente acompanhar a localização do entregador durante a entrega.
+- Organiza o fluxo do pedido, do cadastro do cliente até a finalização da entrega (detalhado abaixo).
 
-Aceitação do Pedido: Se houver motoboy disponível, ele acessa o sistema e verifica os pedidos "pronto para entrega" ', aceitando a entrega pendente.
+## Tecnologias
 
-Transferência: O atendente entrega o produto para o motoboy responsável pela entrega.
+| Camada | Tecnologias |
+| --- | --- |
+| Front-end | HTML, CSS e JavaScript |
+| Back-end | PHP |
+| Banco de dados | MySQL |
 
-Percurso: O motoboy realiza o trajeto até o cliente.
+## Status
 
-Conclusão
-O ciclo se encerra com o recebimento e fechamento financeiro:
+🚧 **Em desenvolvimento.**
 
-Pagamento: O motoboy realiza o recebimento do pagamento de forma presencial.
-Finalização: O motoboy finaliza a entrega em seu cadastro, o que contabiliza as taxas e um valor fixo da noite.
-Fim: O processo é então concluído.
+- [ ] Front-end (HTML e CSS): em andamento
+- [ ] Documentação: em andamento
+- [ ] JavaScript: a implementar
+- [ ] Back-end (PHP e MySQL): a implementar
+
+## Fluxo do sistema
+
+### Etapa do cliente
+1. **Cadastro e acesso:** o cliente se cadastra e faz login.
+2. **Seleção:** abre o cardápio e escolhe o pedido.
+3. **Notificação:** o pedido é realizado e uma notificação é enviada via WhatsApp.
+
+### Etapa de preparo
+1. **Cozinha:** o atendente repassa o pedido para a cozinha, que inicia o preparo.
+2. **Verificação de status:** o sistema verifica se o pedido está pronto. Se não estiver, é preciso verificar o andamento com a cozinha.
+3. Quando fica pronto, o status é atualizado para "para entrega".
+
+### Etapa de logística e entrega
+1. **Disponibilidade do motoboy:** o sistema verifica se há motoboy disponível. Se não houver, aguarda.
+2. **Aceitação do pedido:** o motoboy acessa o sistema, vê os pedidos "prontos para entrega" e aceita a entrega pendente.
+3. **Transferência:** o atendente entrega o produto ao motoboy responsável.
+4. **Percurso:** o motoboy realiza o trajeto até o cliente.
+
+### Conclusão
+1. **Pagamento:** o motoboy recebe o pagamento de forma presencial.
+2. **Finalização:** o motoboy finaliza a entrega em seu cadastro, o que contabiliza as taxas e um valor fixo da noite.
+3. O processo é concluído.
+
+## Como executar
+
+Em breve. Este trecho será atualizado quando o back-end estiver funcionando.
