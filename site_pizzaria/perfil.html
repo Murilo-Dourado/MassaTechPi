@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sabor & Massa - Gerencie seus dados, endereços e preferências.">
+  <title>Sabor &amp; Massa | Perfil</title>
+
+  <!-- Fonte Poppins (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos da aplicação -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       HEADER / NAVBAR FIXO
+       ===================================================================== -->
+  <header class="cabecalho">
+    <div class="cabecalho__conteudo">
+      <a class="logo" href="index.html">🍕 Sabor &amp; Massa</a>
+
+      <nav aria-label="Menu principal">
+        <ul class="menu__lista">
+          <li><a class="menu__link" href="index.html">Início</a></li>
+          <li><a class="menu__link" href="carrinho.html">Carrinho</a></li>
+          <li><a class="menu__link" href="pedidos.html">Meus Pedidos</a></li>
+          <li><a class="menu__link ativo" href="perfil.html" aria-current="page">Perfil</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       CONTEÚDO PRINCIPAL (PERFIL)
+       ===================================================================== -->
+  <main class="conteudo">
+
+    <div class="pagina-titulo">
+      <h1>Meu Perfil</h1>
+      <p>Mantenha seus dados e endereços atualizados para receber seus pedidos sem erro.</p>
+    </div>
+
+    <div class="perfil-layout">
+
+      <!-- Coluna Esquerda: Dados pessoais e Endereços -->
+      <div class="perfil-coluna">
+
+        <!-- Dados pessoais -->
+        <section class="cartao" aria-labelledby="titulo-dados">
+          <h2 class="subtitulo-bloco" id="titulo-dados">Dados pessoais</h2>
+
+          <form action="#" method="post">
+            <div class="form-grid">
+              <div class="campo campo--cheio">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" value="Maria Silva" autocomplete="name" required>
+              </div>
+
+              <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" value="maria.silva@email.com" autocomplete="email" required>
+              </div>
+
+              <div class="campo">
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="telefone" name="telefone" value="(19) 99999-1234" autocomplete="tel" required>
+                <small>Usamos este número para avisar sobre a entrega.</small>
+              </div>
+            </div>
+
+            <div class="form-acoes">
+              <button type="submit" class="btn btn--primario">Salvar alterações</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Endereços de entrega -->
+        <section class="cartao" id="enderecos" aria-labelledby="titulo-enderecos">
+          <h2 class="subtitulo-bloco" id="titulo-enderecos">Endereços de entrega</h2>
+
+          <form action="#" method="post">
+            <fieldset class="enderecos-lista">
+              <legend class="sr-only">Endereço principal</legend>
+
+              <label class="opcao-pagamento" for="end-1">
+                <input type="radio" id="end-1" name="endereco" value="1" checked>
+                <div>
+                  Casa
+                  <small>Rua das Pizzas, 123 - Centro, Santa Bárbara d'Oeste</small>
+                </div>
+                <a class="endereco__acoes" href="#">Editar</a>
+              </label>
+
+              <label class="opcao-pagamento" for="end-2">
+                <input type="radio" id="end-2" name="endereco" value="2">
+                <div>
+                  Trabalho
+                  <small>Av. Monte Castelo, 450 - Jardim Europa, Santa Bárbara d'Oeste</small>
+                </div>
+                <a class="endereco__acoes" href="#">Editar</a>
+              </label>
+            </fieldset>
+
+            <div class="form-acoes">
+              <button type="submit" class="btn btn--primario">Definir como principal</button>
+            </div>
+          </form>
+
+          <!-- Novo endereço (abre e fecha sem JavaScript) -->
+          <details class="novo-endereco">
+            <summary>+ Adicionar novo endereço</summary>
+
+            <form action="#" method="post">
+              <div class="form-grid">
+                <div class="campo campo--cheio">
+                  <label for="apelido">Nome do endereço</label>
+                  <input type="text" id="apelido" name="apelido" placeholder="Ex: Casa da vó">
+                </div>
+
+                <div class="campo">
+                  <label for="cep">CEP</label>
+                  <input type="text" id="cep" name="cep" inputmode="numeric" placeholder="00000-000" autocomplete="postal-code" required>
+                </div>
+
+                <div class="campo">
+                  <label for="numero">Número</label>
+                  <input type="text" id="numero" name="numero" placeholder="Ex: 123" required>
+                </div>
+
+                <div class="campo campo--cheio">
+                  <label for="rua">Rua</label>
+                  <input type="text" id="rua" name="rua" autocomplete="address-line1" required>
+                </div>
+
+                <div class="campo">
+                  <label for="bairro">Bairro</label>
+                  <input type="text" id="bairro" name="bairro" required>
+                </div>
+
+                <div class="campo">
+                  <label for="cidade">Cidade</label>
+                  <input type="text" id="cidade" name="cidade" value="Santa Bárbara d'Oeste" required>
+                </div>
+
+                <div class="campo campo--cheio">
+                  <label for="complemento">Complemento</label>
+                  <input type="text" id="complemento" name="complemento" placeholder="Apto, bloco, ponto de referência">
+                </div>
+              </div>
+
+              <div class="form-acoes">
+                <button type="submit" class="btn btn--primario">Salvar endereço</button>
+              </div>
+            </form>
+          </details>
+        </section>
+
+      </div>
+
+      <!-- Coluna Direita: Resumo do usuário, Preferências e Conta -->
+      <div class="perfil-coluna perfil-lateral">
+
+        <section class="cartao perfil-usuario" aria-label="Resumo da conta">
+          <div class="avatar" role="img" aria-label="Iniciais de Maria Silva">MS</div>
+          <h2>Maria Silva</h2>
+          <p>maria.silva@email.com</p>
+
+          <div class="perfil-estatisticas">
+            <div>
+              <strong>12</strong>
+              <span>Pedidos feitos</span>
+            </div>
+            <div>
+              <strong>2026</strong>
+              <span>Cliente desde</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="cartao" aria-labelledby="titulo-preferencias">
+          <h2 class="subtitulo-bloco" id="titulo-preferencias">Preferências</h2>
+
+          <form action="#" method="post">
+            <label class="opcao-check" for="pref-status">
+              <input type="checkbox" id="pref-status" name="pref_status" checked>
+              <div>
+                Avisos do pedido
+                <small>Receba o status do pedido por WhatsApp.</small>
+              </div>
+            </label>
+
+            <label class="opcao-check" for="pref-promo">
+              <input type="checkbox" id="pref-promo" name="pref_promo">
+              <div>
+                Ofertas e promoções
+                <small>Receba as ofertas do dia por e-mail.</small>
+              </div>
+            </label>
+
+            <div class="form-acoes">
+              <button type="submit" class="btn btn--secundario btn--bloco">Salvar preferências</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="cartao" aria-labelledby="titulo-conta">
+          <h2 class="subtitulo-bloco" id="titulo-conta">Conta</h2>
+
+          <div class="conta-acoes">
+            <a class="btn btn--neutro btn--bloco" href="#">Alterar senha</a>
+            <a class="btn btn--neutro btn--bloco" href="#">Sair da conta</a>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER / RODAPÉ
+       ===================================================================== -->
+  <footer class="rodape">
+    <div class="rodape__conteudo">
+      <div>
+        <p class="rodape__marca">🍕 Sabor &amp; Massa</p>
+        <p>Pizzas artesanais com entrega rápida. Massa fresca todos os dias.</p>
+      </div>
+      <div>
+        <h3>Atendimento</h3>
+        <ul>
+          <li>Ter a dom, das 18h às 23h30</li>
+          <li>WhatsApp: (19) 99999-0000</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Navegue</h3>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="carrinho.html">Carrinho</a></li>
+          <li><a href="pedidos.html">Meus Pedidos</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="rodape__direitos">&copy; 2026 Sabor &amp; Massa. Projeto acadêmico.</p>
+  </footer>
+
+</body>
+</html>
