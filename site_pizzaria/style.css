@@ -349,3 +349,123 @@ ul {
     padding: 0 1.5rem;
   }
 }
+
+/* ==========================================================================
+   09. GRID DO CARDÁPIO (cards de produto)
+   Mobile: 1 coluna | Tablet: 2 colunas | Desktop: 3 colunas
+   ========================================================================== */
+.produtos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.produto-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--superficie);
+  border-radius: var(--raio-md);
+  box-shadow: var(--sombra);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produto-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-forte);
+}
+
+/* Placeholder da foto do produto */
+.produto-card__foto {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  font-size: 3.75rem;
+  background: linear-gradient(135deg, #ffe3b0, #ffc078);
+}
+
+.produto-card__foto--doce {
+  background: linear-gradient(135deg, #ffd6e0, #f5a3b8);
+}
+
+.produto-card__foto--bebida {
+  background: linear-gradient(135deg, #d4ecff, #9fd0f7);
+}
+
+.produto-card__selo {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background-color: var(--cor-principal);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.produto-card__corpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+}
+
+.produto-card__nome {
+  font-size: 1.05rem;
+}
+
+.produto-card__descricao {
+  margin: 0.25rem 0 1rem;
+  color: var(--texto-suave);
+  font-size: 0.875rem;
+}
+
+.produto-card__form {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.produto-card__linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.produto-card__preco {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+  line-height: 1.1;
+}
+
+.produto-card__preco small {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+
+/* ==========================================================================
+   10. SELECTS COMPACTOS (usados nos cards de produto)
+   ========================================================================== */
+.select-compacto {
+  width: auto;
+  padding: 0.45rem 0.6rem;
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background-color: var(--superficie);
+  font-size: 0.85rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select-compacto:focus {
+  outline: none;
+  border-color: var(--cor-principal);
+  box-shadow: 0 0 0 3px var(--cor-principal-suave);
+}
