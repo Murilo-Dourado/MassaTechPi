@@ -9,13 +9,24 @@
   --borda: #e4e8ec;
   --raio-sm: 8px;
   --raio-md: 14px;
-  --sombra: 0 2px 10px rgba(47, 54, 64, 0.08);
-  --altura-header: 96px;
-  --largura-max: 1120px;
   --raio-lg: 20px;
+  --sombra: 0 2px 10px rgba(47, 54, 64, 0.08);
   --sombra-forte: 0 8px 24px rgba(47, 54, 64, 0.14);
+  --sombra-banner: 0 8px 24px rgba(47, 54, 64, 0.14);
+  --altura-header: 96px;
   --altura-categorias: 52px;
+  --largura-max: 1120px;
+
+  --foto-pizza: linear-gradient(135deg, #ffe3b0, #ffc078);
+  --foto-doce: linear-gradient(135deg, #ffd6e0, #f5a3b8);
+  --foto-bebida: linear-gradient(135deg, #d4ecff, #9fd0f7);
+  --aviso-fundo: #fff3dc;
+  --aviso-texto: #b36b00;
+  --ok-fundo: #e3f9ec;
+  --ok-texto: #1e8a4c;
+  --erro-texto: #e03546;
 }
+
 
 *,
 *::before,
@@ -26,10 +37,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.6;
+  font: 400 1rem/1.6 'Poppins', sans-serif;
   color: var(--texto);
   background-color: var(--fundo);
   padding-top: var(--altura-header);
@@ -43,6 +51,16 @@ a {
 ul {
   list-style: none;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 
 .cabecalho {
   position: fixed;
@@ -85,13 +103,13 @@ ul {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--texto-suave);
-  transition: color 0.2s ease;
 }
 
 .menu__link:hover,
 .menu__link.ativo {
   color: var(--cor-principal);
 }
+
 
 .menu__link::after {
   content: '';
@@ -103,13 +121,62 @@ ul {
   border-radius: 2px;
   background-color: var(--cor-principal);
   transform: scaleX(0);
-  transition: transform 0.2s ease;
 }
 
 .menu__link.ativo::after,
 .menu__link:hover::after {
   transform: scaleX(1);
 }
+
+
+.menu__tema {
+  display: flex;
+  align-items: center;
+  margin-left: 0.25rem;
+}
+
+.tema__botao {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 58px;
+  height: 30px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background-color: var(--borda);
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tema__botao::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.tema__botao span {
+  position: relative;
+  z-index: 1;
+}
+
+.tema__input:checked+.tema__botao::before {
+  transform: translateX(28px);
+}
+
+.tema__input:focus-visible+.tema__botao {
+  outline: 3px solid var(--cor-principal-suave);
+  outline-offset: 2px;
+}
+
 
 .conteudo {
   max-width: var(--largura-max);
@@ -119,16 +186,16 @@ ul {
 }
 
 .boas-vindas {
-  background-color: var(--superficie);
   padding: 2rem;
   border-radius: var(--raio-md);
+  background-color: var(--superficie);
   box-shadow: var(--sombra);
   text-align: center;
 }
 
 .boas-vindas h1 {
-  font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  font-size: 1.5rem;
   color: var(--cor-principal);
 }
 
@@ -136,79 +203,63 @@ ul {
   color: var(--texto-suave);
 }
 
-.rodape {
-  background-color: var(--texto);
-  color: #dfe4ea;
-  font-size: 0.875rem;
+.pagina-titulo {
+  margin-bottom: 1.5rem;
 }
 
-.rodape__conteudo {
-  max-width: var(--largura-max);
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+.pagina-titulo h1 {
+  font-size: 1.6rem;
+  line-height: 1.25;
 }
 
-.rodape__marca {
-  font-size: 1.15rem;
+.pagina-titulo p {
+  margin-top: 0.25rem;
+  color: var(--texto-suave);
+}
+
+.secao {
+  margin-top: 2.5rem;
+  scroll-margin-top: calc(var(--altura-header) + var(--altura-categorias) + 1rem);
+}
+
+.secao__titulo {
+  font-size: 1.35rem;
+}
+
+.secao__subtitulo {
+  margin-bottom: 1rem;
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+}
+
+.cartao {
+  padding: 1.25rem;
+  border-radius: var(--raio-md);
+  background-color: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.subtitulo-bloco {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #ffffff;
 }
 
-.rodape h3 {
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
-  color: #ffffff;
+.alerta {
+  margin-bottom: 1.25rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--raio-sm);
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
-.rodape p,
-.rodape li {
-  color: #b2bec3;
-  font-weight: 300;
+.alerta--erro {
+  background-color: var(--cor-principal-suave);
+  border: 1.5px solid var(--cor-principal);
+  color: var(--erro-texto);
 }
 
-.rodape a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
 
-.rodape__direitos {
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.78rem;
-  color: #b2bec3;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-@media (min-width: 600px) {
-  .rodape__conteudo {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
-}
-
-@media (min-width: 720px) {
-  :root {
-    --altura-header: 68px;
-  }
-
-  .cabecalho__conteudo {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 1.5rem;
-  }
-
-  .menu__link {
-    padding: 0.5rem 0.9rem;
-    font-size: 0.92rem;
-  }
-}
-
-/* ==========================================================================
-   05. BARRA DE CATEGORIAS (estilo iFood)
-   Fica grudada logo abaixo do header fixo.
-   ========================================================================== */
 .categorias {
   position: sticky;
   top: var(--altura-header);
@@ -223,19 +274,13 @@ ul {
   padding: 0 1rem;
   display: flex;
   gap: 1.5rem;
-  overflow-x: auto;                 /* rolagem horizontal */
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;            /* Firefox */
-}
-
-.categorias__lista::-webkit-scrollbar {
-  display: none;                    /* Chrome, Safari e Edge */
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .categorias__link {
   position: relative;
-  flex: 0 0 auto;                   /* impede encolhimento das abas */
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -244,10 +289,8 @@ ul {
   font-weight: 600;
   color: var(--texto-suave);
   white-space: nowrap;
-  transition: color 0.2s ease;
 }
 
-/* Linha indicadora colorida sob a aba selecionada */
 .categorias__link::after {
   content: '';
   position: absolute;
@@ -258,7 +301,6 @@ ul {
   border-radius: 3px 3px 0 0;
   background-color: var(--cor-principal);
   transform: scaleX(0);
-  transition: transform 0.25s ease;
 }
 
 .categorias__link:hover,
@@ -272,9 +314,6 @@ ul {
 }
 
 
-/* ==========================================================================
-   08. BANNER PROMOCIONAL
-   ========================================================================== */
 .banner {
   position: relative;
   overflow: hidden;
@@ -282,12 +321,12 @@ ul {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
+  margin-top: 1rem;
   padding: 1.5rem;
   border-radius: var(--raio-lg);
   color: #ffffff;
   background: linear-gradient(135deg, #ff4757 0%, #ff6b4a 55%, #ffa502 100%);
-  box-shadow: 0 8px 24px rgba(47, 54, 64, 0.14);
-  margin-top: 1rem;
+  box-shadow: var(--sombra-banner);
 }
 
 .banner::after {
@@ -311,8 +350,8 @@ ul {
 }
 
 .banner__titulo {
-  font-size: 1.5rem;
   max-width: 18ch;
+  font-size: 1.5rem;
 }
 
 .banner__texto {
@@ -328,35 +367,11 @@ ul {
   border-radius: var(--raio-sm);
   background-color: #ffffff;
   color: var(--cor-principal-escura);
-  font-weight: 700;
   font-size: 0.95rem;
-  transition: transform 0.2s ease;
+  font-weight: 700;
 }
 
-.banner__cta:hover {
-  transform: translateY(-2px);
-}
 
-/* Ajustes de Media Query para telas maiores */
-@media (min-width: 600px) {
-  .banner {
-    padding: 2rem;
-  }
-  .banner__titulo {
-    font-size: 1.9rem;
-  }
-}
-
-@media (min-width: 720px) {
-  .categorias__lista {
-    padding: 0 1.5rem;
-  }
-}
-
-/* ==========================================================================
-   09. GRID DO CARDÁPIO (cards de produto)
-   Mobile: 1 coluna | Tablet: 2 colunas | Desktop: 3 colunas
-   ========================================================================== */
 .produtos-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -367,33 +382,30 @@ ul {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--superficie);
   border-radius: var(--raio-md);
+  background-color: var(--superficie);
   box-shadow: var(--sombra);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .produto-card:hover {
-  transform: translateY(-3px);
   box-shadow: var(--sombra-forte);
 }
 
-/* Placeholder da foto do produto */
 .produto-card__foto {
   position: relative;
   display: grid;
   place-items: center;
   aspect-ratio: 16 / 9;
   font-size: 3.75rem;
-  background: linear-gradient(135deg, #ffe3b0, #ffc078);
+  background: var(--foto-pizza);
 }
 
 .produto-card__foto--doce {
-  background: linear-gradient(135deg, #ffd6e0, #f5a3b8);
+  background: var(--foto-doce);
 }
 
 .produto-card__foto--bebida {
-  background: linear-gradient(135deg, #d4ecff, #9fd0f7);
+  background: var(--foto-bebida);
 }
 
 .produto-card__selo {
@@ -442,8 +454,8 @@ ul {
 .produto-card__preco {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--cor-principal);
   line-height: 1.1;
+  color: var(--cor-principal);
 }
 
 .produto-card__preco small {
@@ -454,84 +466,6 @@ ul {
 }
 
 
-/* ==========================================================================
-   10. SELECTS COMPACTOS (usados nos cards de produto)
-   ========================================================================== */
-.select-compacto {
-  width: auto;
-  padding: 0.45rem 0.6rem;
-  border: 1.5px solid var(--borda);
-  border-radius: var(--raio-sm);
-  background-color: var(--superficie);
-  font-size: 0.85rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.select-compacto:focus {
-  outline: none;
-  border-color: var(--cor-principal);
-  box-shadow: 0 0 0 3px var(--cor-principal-suave);
-}
-
-/* ==========================================================================
-   10.1 BASE COMPARTILHADA (utilitários, cartões, formulários e botões)
-   Classes usadas por carrinho.html, pedidos.html e perfil.html.
-   ========================================================================== */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.pagina-titulo {
-  margin-bottom: 1.5rem;
-}
-
-.pagina-titulo h1 {
-  font-size: 1.6rem;
-  line-height: 1.25;
-}
-
-.pagina-titulo p {
-  margin-top: 0.25rem;
-  color: var(--texto-suave);
-}
-
-.secao {
-  margin-top: 2.5rem;
-  scroll-margin-top: calc(var(--altura-header) + var(--altura-categorias) + 1rem);
-}
-
-.secao__titulo {
-  font-size: 1.35rem;
-}
-
-.secao__subtitulo {
-  margin-bottom: 1rem;
-  color: var(--texto-suave);
-  font-size: 0.92rem;
-}
-
-.cartao {
-  padding: 1.25rem;
-  background-color: var(--superficie);
-  border-radius: var(--raio-md);
-  box-shadow: var(--sombra);
-}
-
-.subtitulo-bloco {
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-/* ----- Campos de formulário ----- */
 .campo {
   display: flex;
   flex-direction: column;
@@ -541,6 +475,16 @@ ul {
 .campo label {
   font-size: 0.85rem;
   font-weight: 600;
+}
+
+.campo small {
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}
+
+.campo textarea {
+  min-height: 96px;
+  resize: vertical;
 }
 
 .campo input,
@@ -554,28 +498,28 @@ ul {
   font: inherit;
   font-size: 0.92rem;
   color: var(--texto);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.campo textarea {
-  min-height: 96px;
-  resize: vertical;
+.select-compacto {
+  width: auto;
+  padding: 0.45rem 0.6rem;
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background-color: var(--superficie);
+  font-size: 0.85rem;
 }
+
 
 .campo input:focus,
 .campo select:focus,
-.campo textarea:focus {
+.campo textarea:focus,
+.select-compacto:focus,
+.item-carrinho__qtd input:focus {
   outline: none;
   border-color: var(--cor-principal);
   box-shadow: 0 0 0 3px var(--cor-principal-suave);
 }
 
-.campo small {
-  font-size: 0.78rem;
-  color: var(--texto-suave);
-}
-
-/* ----- Botões ----- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -588,7 +532,6 @@ ul {
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .btn:focus-visible {
@@ -640,29 +583,39 @@ ul {
   font-size: 0.82rem;
 }
 
-/* ==========================================================================
-   11. CARRINHO (carrinho.html)
-   ========================================================================== */
-.carrinho-layout {
+
+.carrinho-layout,
+.perfil-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
 }
 
-.carrinho-coluna {
+.carrinho-coluna,
+.perfil-coluna,
+.pedidos,
+.pedidos__lista {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-/* ----- Lista de itens do carrinho ----- */
 .lista-itens {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-/* Mobile: 2 linhas  ->  [foto | info]  /  [quantidade | subtotal] */
+.pagamento__opcoes,
+.enderecos-lista,
+.conta-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border: 0;
+}
+
+
 .item-carrinho {
   display: grid;
   grid-template-columns: 72px 1fr;
@@ -684,11 +637,11 @@ ul {
   height: 72px;
   border-radius: var(--raio-sm);
   font-size: 2.25rem;
-  background: linear-gradient(135deg, #ffe3b0, #ffc078);
+  background: var(--foto-pizza);
 }
 
 .item-carrinho__foto--bebida {
-  background: linear-gradient(135deg, #d4ecff, #9fd0f7);
+  background: var(--foto-bebida);
 }
 
 .item-carrinho__info {
@@ -713,12 +666,6 @@ ul {
   display: inline-block;
   margin-top: 0.35rem;
   font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--cor-principal);
-}
-
-.item-carrinho__remover:hover {
-  text-decoration: underline;
 }
 
 .item-carrinho__qtd {
@@ -737,12 +684,6 @@ ul {
   text-align: center;
 }
 
-.item-carrinho__qtd input:focus {
-  outline: none;
-  border-color: var(--cor-principal);
-  box-shadow: 0 0 0 3px var(--cor-principal-suave);
-}
-
 .item-carrinho__subtotal {
   grid-area: subtotal;
   justify-self: end;
@@ -758,19 +699,60 @@ ul {
   color: var(--texto-suave);
 }
 
+.qtd-btn {
+  width: 2rem;
+  height: 2rem;
+  border: 1.5px solid var(--borda);
+  border-radius: 50%;
+  background-color: var(--superficie);
+  color: var(--texto);
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qtd-btn:hover {
+  border-color: var(--cor-principal);
+  color: var(--cor-principal);
+}
+
 .link-continuar {
   display: inline-block;
   margin-top: 1rem;
   font-size: 0.9rem;
+}
+
+.lista-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.lista-acoes .link-continuar {
+  margin-top: 0;
+}
+
+
+.item-carrinho__remover,
+.link-continuar,
+.entrega-info a,
+.endereco__acoes,
+.novo-endereco summary {
   font-weight: 600;
   color: var(--cor-principal);
 }
 
-.link-continuar:hover {
+.item-carrinho__remover:hover,
+.link-continuar:hover,
+.endereco__acoes:hover,
+.novo-endereco summary:hover {
   text-decoration: underline;
 }
 
-/* ----- Endereço de entrega (resumo no topo) ----- */
 .entrega-info {
   display: flex;
   flex-wrap: wrap;
@@ -788,18 +770,6 @@ ul {
   color: var(--texto-suave);
 }
 
-.entrega-info a {
-  font-weight: 600;
-  color: var(--cor-principal);
-}
-
-/* ----- Forma de pagamento ----- */
-.pagamento__opcoes {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  border: 0;
-}
 
 .pagamento__opcoes legend {
   margin-bottom: 0.75rem;
@@ -817,29 +787,29 @@ ul {
   border-radius: var(--raio-sm);
   cursor: pointer;
   font-weight: 600;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.opcao-pagamento input {
-  width: 1.1rem;
-  height: 1.1rem;
-  accent-color: var(--cor-principal);
-}
-
-.opcao-pagamento small {
-  display: block;
-  font-weight: 400;
-  color: var(--texto-suave);
-  font-size: 0.78rem;
-}
-
-/* Destaca a opção selecionada */
 .opcao-pagamento:has(input:checked) {
   border-color: var(--cor-principal);
   background-color: var(--cor-principal-suave);
 }
 
-/* Campo de troco condicional */
+.opcao-pagamento input,
+.opcao-check input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--cor-principal);
+}
+
+.opcao-pagamento small,
+.opcao-check small {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+
 .campo-troco {
   display: none;
   margin-top: 0.25rem;
@@ -849,7 +819,7 @@ ul {
   display: flex;
 }
 
-/* ----- Resumo financeiro ----- */
+
 .resumo__linha {
   display: flex;
   justify-content: space-between;
@@ -889,56 +859,7 @@ ul {
   color: var(--texto-suave);
 }
 
-/* ----- Ajustes Responsivos do Carrinho (Media Queries) ----- */
-@media (min-width: 600px) {
-  .item-carrinho {
-    grid-template-columns: 80px 1fr auto 110px;
-    grid-template-areas: "foto info qtd subtotal";
-  }
 
-  .item-carrinho__foto {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-@media (min-width: 960px) {
-  .carrinho-layout {
-    grid-template-columns: 1fr 360px;
-    align-items: start;
-  }
-
-  .resumo-lateral {
-    position: sticky;
-    top: calc(var(--altura-header) + 1.25rem);
-  }
-}
-
-/* ==========================================================================
-   09.1 GRID DO CARDÁPIO - colunas por tamanho de tela
-   ========================================================================== */
-@media (min-width: 600px) {
-  .produtos-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 960px) {
-  .produtos-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ==========================================================================
-   12. MEUS PEDIDOS (pedidos.html)
-   ========================================================================== */
-.pedidos {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-/* ----- Filtros (somente CSS: radios + :has) ----- */
 .pedidos__filtros {
   min-width: 0;
   border: 0;
@@ -946,10 +867,6 @@ ul {
   gap: 0.5rem;
   overflow-x: auto;
   scrollbar-width: none;
-}
-
-.pedidos__filtros::-webkit-scrollbar {
-  display: none;
 }
 
 .filtro {
@@ -962,7 +879,6 @@ ul {
   font-weight: 600;
   color: var(--texto-suave);
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .filtro:hover {
@@ -979,19 +895,13 @@ ul {
   box-shadow: 0 0 0 3px var(--cor-principal-suave);
 }
 
+
 .pedidos:has(#filtro-andamento:checked) .pedido:not([data-status="andamento"]),
 .pedidos:has(#filtro-entregue:checked) .pedido:not([data-status="entregue"]),
 .pedidos:has(#filtro-cancelado:checked) .pedido:not([data-status="cancelado"]) {
   display: none;
 }
 
-.pedidos__lista {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-/* ----- Cartão de pedido ----- */
 .pedido__cabecalho {
   display: flex;
   flex-wrap: wrap;
@@ -1022,21 +932,21 @@ ul {
 }
 
 .selo-status--andamento {
-  background-color: #fff3dc;
-  color: #b36b00;
+  background-color: var(--aviso-fundo);
+  color: var(--aviso-texto);
 }
 
 .selo-status--entregue {
-  background-color: #e3f9ec;
-  color: #1e8a4c;
+  background-color: var(--ok-fundo);
+  color: var(--ok-texto);
 }
 
 .selo-status--cancelado {
   background-color: var(--cor-principal-suave);
-  color: var(--cor-principal-escura);
+  color: var(--erro-texto);
 }
 
-/* ----- Linha do tempo do pedido ----- */
+
 .etapas {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1106,16 +1016,19 @@ ul {
   box-shadow: 0 0 0 4px var(--cor-principal-suave);
 }
 
+.pedido__aviso,
+.pedido__detalhes {
+  border-radius: var(--raio-sm);
+  background-color: var(--fundo);
+}
+
 .pedido__aviso {
   margin: 1rem 0 0.5rem;
   padding: 0.7rem 0.9rem;
-  border-radius: var(--raio-sm);
-  background-color: var(--fundo);
   font-size: 0.85rem;
   color: var(--texto-suave);
 }
 
-/* ----- Itens e resumo do pedido ----- */
 .pedido__corpo {
   display: grid;
   grid-template-columns: 1fr;
@@ -1144,8 +1057,6 @@ ul {
 
 .pedido__detalhes {
   padding: 0.9rem;
-  border-radius: var(--raio-sm);
-  background-color: var(--fundo);
   font-size: 0.85rem;
 }
 
@@ -1177,27 +1088,21 @@ ul {
   font-weight: 700;
 }
 
-.pedido__acoes {
+.pedido__acoes,
+.form-acoes {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.pedido__acoes {
   margin-top: 1rem;
 }
 
-/* ==========================================================================
-   13. PERFIL (perfil.html)
-   ========================================================================== */
-.perfil-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
+.form-acoes {
+  margin-top: 1.25rem;
 }
 
-.perfil-coluna {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
 
 .form-grid {
   display: grid;
@@ -1209,16 +1114,17 @@ ul {
   grid-column: 1 / -1;
 }
 
-.form-acoes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1.25rem;
-}
-
-/* ----- Cartão do usuário ----- */
 .perfil-usuario {
   text-align: center;
+}
+
+.perfil-usuario h2 {
+  font-size: 1.15rem;
+}
+
+.perfil-usuario p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
 }
 
 .avatar {
@@ -1232,15 +1138,6 @@ ul {
   color: #ffffff;
   font-size: 2rem;
   font-weight: 700;
-}
-
-.perfil-usuario h2 {
-  font-size: 1.15rem;
-}
-
-.perfil-usuario p {
-  font-size: 0.85rem;
-  color: var(--texto-suave);
 }
 
 .perfil-estatisticas {
@@ -1262,14 +1159,6 @@ ul {
   color: var(--texto-suave);
 }
 
-/* ----- Endereços ----- */
-.enderecos-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  border: 0;
-}
-
 .enderecos-lista .opcao-pagamento {
   align-items: flex-start;
 }
@@ -1278,12 +1167,6 @@ ul {
   margin-left: auto;
   align-self: center;
   font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--cor-principal);
-}
-
-.endereco__acoes:hover {
-  text-decoration: underline;
 }
 
 .novo-endereco {
@@ -1295,19 +1178,12 @@ ul {
 .novo-endereco summary {
   cursor: pointer;
   font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--cor-principal);
-}
-
-.novo-endereco summary:hover {
-  text-decoration: underline;
 }
 
 .novo-endereco[open] summary {
   margin-bottom: 1rem;
 }
 
-/* ----- Preferências ----- */
 .opcao-check {
   display: flex;
   align-items: flex-start;
@@ -1319,33 +1195,105 @@ ul {
 }
 
 .opcao-check input {
-  width: 1.1rem;
-  height: 1.1rem;
   margin-top: 0.2rem;
-  accent-color: var(--cor-principal);
 }
 
-.opcao-check small {
-  display: block;
-  font-weight: 400;
+
+.rodape {
+  background-color: var(--texto);
+  color: #dfe4ea;
+  font-size: 0.875rem;
+}
+
+.rodape__conteudo {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.rodape__marca {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.rodape h3 {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.rodape p,
+.rodape li {
+  color: #b2bec3;
+  font-weight: 300;
+}
+
+.rodape a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.rodape__direitos {
+  padding: 1rem;
+  text-align: center;
   font-size: 0.78rem;
-  color: var(--texto-suave);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.conta-acoes {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
 
-/* ----- Ajustes Responsivos (Pedidos e Perfil) ----- */
 @media (min-width: 600px) {
+  .rodape__conteudo {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .banner {
+    padding: 2rem;
+  }
+
+  .banner__titulo {
+    font-size: 1.9rem;
+  }
+
+  .produtos-grid,
   .form-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .item-carrinho {
+    grid-template-columns: 80px 1fr auto 110px;
+    grid-template-areas: "foto info qtd subtotal";
+  }
+
+  .item-carrinho__foto {
+    width: 80px;
+    height: 80px;
   }
 }
 
 @media (min-width: 720px) {
+  :root {
+    --altura-header: 68px;
+  }
+
+  .cabecalho__conteudo {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+  }
+
+  .menu__link {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.92rem;
+  }
+
+  .categorias__lista {
+    padding: 0 1.5rem;
+  }
+
   .pedido__corpo {
     grid-template-columns: 1.4fr 1fr;
     gap: 1.5rem;
@@ -1357,11 +1305,21 @@ ul {
 }
 
 @media (min-width: 960px) {
+  .produtos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .carrinho-layout {
+    grid-template-columns: 1fr 360px;
+    align-items: start;
+  }
+
   .perfil-layout {
     grid-template-columns: 1fr 360px;
     align-items: start;
   }
 
+  .resumo-lateral,
   .perfil-lateral {
     position: sticky;
     top: calc(var(--altura-header) + 1.25rem);
@@ -1369,66 +1327,8 @@ ul {
 }
 
 
-/* ==========================================================================
-   14. MODO ESCURO COM BOTÃO (somente CSS, sem JavaScript)
-   Um checkbox escondido (#tema-escuro) guarda o estado; o seletor :has()
-   aplica o tema escuro na página inteira quando ele está marcado.
-   O <label> do checkbox é o botão com ☀️ (claro) e 🌙 (escuro).
-   ========================================================================== */
-.menu__tema {
-  display: flex;
-  align-items: center;
-  margin-left: 0.25rem;
-}
-
-.tema__botao {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 58px;
-  height: 30px;
-  padding: 0 7px;
-  border-radius: 999px;
-  background-color: var(--borda);
-  font-size: 0.85rem;
-  line-height: 1;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.25s ease;
-}
-
-/* Bolinha que desliza para trás do ícone ativo */
-.tema__botao::before {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: var(--superficie);
-  box-shadow: var(--sombra);
-  transition: transform 0.25s ease;
-}
-
-.tema__botao span {
-  position: relative;
-  z-index: 1;
-}
-
-.tema__input:checked + .tema__botao::before {
-  transform: translateX(28px);
-}
-
-.tema__input:focus-visible + .tema__botao {
-  outline: 3px solid var(--cor-principal-suave);
-  outline-offset: 2px;
-}
-
-/* ----- Tema escuro: troca as variáveis e corrige cores fixas ----- */
 :root:has(#tema-escuro:checked) {
-  color-scheme: dark;          /* barras de rolagem e controles nativos escuros */
+  color-scheme: dark;
   --fundo: #121417;
   --superficie: #1d2126;
   --texto: #e8eaed;
@@ -1437,102 +1337,24 @@ ul {
   --cor-principal-suave: rgba(255, 71, 87, 0.16);
   --sombra: 0 2px 10px rgba(0, 0, 0, 0.45);
   --sombra-forte: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --sombra-banner: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --foto-pizza: linear-gradient(135deg, #7a5420, #5c3a12);
+  --foto-doce: linear-gradient(135deg, #6b2a3d, #4a1c2b);
+  --foto-bebida: linear-gradient(135deg, #1f4668, #153148);
+  --aviso-fundo: rgba(255, 165, 2, 0.16);
+  --aviso-texto: #ffb84d;
+  --ok-fundo: rgba(46, 213, 115, 0.16);
+  --ok-texto: #4cdc8c;
+  --erro-texto: #ff7a87;
 }
 
-/* Rodapé usava var(--texto) como fundo: no escuro ficaria claro */
 :root:has(#tema-escuro:checked) .rodape {
   background-color: #0c0e10;
   border-top: 1px solid var(--borda);
 }
 
-:root:has(#tema-escuro:checked) .produto-card__foto,
-:root:has(#tema-escuro:checked) .item-carrinho__foto {
-  background: linear-gradient(135deg, #7a5420, #5c3a12);
-}
-
-:root:has(#tema-escuro:checked) .produto-card__foto--doce {
-  background: linear-gradient(135deg, #6b2a3d, #4a1c2b);
-}
-
-:root:has(#tema-escuro:checked) .produto-card__foto--bebida,
-:root:has(#tema-escuro:checked) .item-carrinho__foto--bebida {
-  background: linear-gradient(135deg, #1f4668, #153148);
-}
-
-:root:has(#tema-escuro:checked) .selo-status--andamento {
-  background-color: rgba(255, 165, 2, 0.16);
-  color: #ffb84d;
-}
-
-:root:has(#tema-escuro:checked) .selo-status--entregue {
-  background-color: rgba(46, 213, 115, 0.16);
-  color: #4cdc8c;
-}
-
-:root:has(#tema-escuro:checked) .selo-status--cancelado {
-  background-color: rgba(255, 71, 87, 0.16);
-  color: #ff7a87;
-}
-
-/* Campos que não definiam cor/fundo próprios */
 :root:has(#tema-escuro:checked) .select-compacto,
 :root:has(#tema-escuro:checked) .item-carrinho__qtd input {
   background-color: var(--superficie);
   color: var(--texto);
-}
-
-:root:has(#tema-escuro:checked) .banner {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-}
-
-/* ----- Aviso de erro (ex.: pedido não finalizado) ----- */
-.alerta {
-  margin-bottom: 1.25rem;
-  padding: 0.8rem 1rem;
-  border-radius: var(--raio-sm);
-  font-size: 0.92rem;
-  font-weight: 600;
-}
-
-.alerta--erro {
-  background-color: var(--cor-principal-suave);
-  border: 1.5px solid var(--cor-principal);
-  color: var(--cor-principal-escura);
-}
-
-:root:has(#tema-escuro:checked) .alerta--erro {
-  color: #ff7a87;
-}
-
-/* ----- Controles de quantidade (− / +) e ações da lista do carrinho ----- */
-.qtd-btn {
-  width: 2rem;
-  height: 2rem;
-  border: 1.5px solid var(--borda);
-  border-radius: 50%;
-  background-color: var(--superficie);
-  color: var(--texto);
-  font: inherit;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.qtd-btn:hover {
-  border-color: var(--cor-principal);
-  color: var(--cor-principal);
-}
-
-.lista-acoes {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.lista-acoes .link-continuar {
-  margin-top: 0;
 }

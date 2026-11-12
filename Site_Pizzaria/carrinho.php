@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Botões − / + ao lado da quantidade de cada item
+    
     foreach (($_POST['alterar'] ?? []) as $chave => $sentido) {
         $chave = (string) $chave;
         if (isset($_SESSION['carrinho'][$chave])) {
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $itens     = itens_do_carrinho($pdo);
     $pagamento = $_POST['pagamento'] ?? '';
 
-    // Guarda o que já foi preenchido para não perder ao atualizar as quantidades
+   
     $_SESSION['form_carrinho'] = [
         'pagamento'   => in_array($pagamento, $formas_validas, true) ? $pagamento : 'pix',
         'troco'       => trim($_POST['troco'] ?? ''),
@@ -154,7 +154,7 @@ cabecalho('carrinho.php', 'Carrinho', 'Sabor & Massa - Carrinho de compras e fin
 ?>
 
   <form id="form-carrinho" method="post" action="carrinho.php"></form>
-  <!-- Botão padrão do formulário: apertar Enter em um campo só atualiza os valores -->
+  
   <button type="submit" form="form-carrinho" name="atualizar" value="1" class="sr-only" tabindex="-1" aria-hidden="true">Atualizar</button>
 
   <main class="conteudo">

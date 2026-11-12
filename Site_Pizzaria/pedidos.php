@@ -85,7 +85,7 @@ cabecalho('pedidos.php', 'Meus Pedidos', 'Sabor & Massa - Acompanhe e consulte s
     $total = $subtotal + $pedido['taxa_entrega'];
 
     $status = $pedido['status'];
-    // data-status e selo seguem o que o HTML usa: andamento / entregue / cancelado
+    
     $grupo = ($status === 'entregue' || $status === 'cancelado') ? $status : 'andamento';
     $texto_selo = ($status === 'entregue') ? 'Entregue' : (($status === 'cancelado') ? 'Cancelado' : $etapas[$status]);
 ?>

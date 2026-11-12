@@ -11,14 +11,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Estilos da aplicação -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- =====================================================================
-       HEADER / NAVBAR FIXO
-       ===================================================================== -->
+  
   <header class="cabecalho">
     <div class="cabecalho__conteudo">
       <a class="logo" href="index.html">🍕 Sabor &amp; Massa</a>
@@ -42,9 +39,7 @@
     </div>
   </header>
 
-  <!-- =====================================================================
-       CONTEÚDO PRINCIPAL (CARRINHO)
-       ===================================================================== -->
+
   <main class="conteudo">
 
     <div class="pagina-titulo">
@@ -52,13 +47,13 @@
       <p>Confira os itens selecionados e escolha a forma de pagamento.</p>
     </div>
 
-    <!-- Layout em Grid: Itens à esquerda, Resumo e Pagamento à direita (no desktop) -->
+  
     <div class="carrinho-layout">
 
-      <!-- Coluna Esquerda: Endereço e Lista de Itens -->
+      
       <div class="carrinho-coluna">
 
-        <!-- Endereço de entrega selecionado -->
+      
         <section class="cartao entrega-info" aria-label="Endereço de entrega">
           <div>
             <strong>Endereço de entrega</strong>
@@ -67,13 +62,13 @@
           <a href="perfil.html">Alterar</a>
         </section>
 
-        <!-- Lista de Produtos no Carrinho -->
+       
         <section class="cartao" aria-labelledby="titulo-itens">
           <h2 class="subtitulo-bloco" id="titulo-itens">Itens do pedido (2)</h2>
 
           <ul class="lista-itens">
 
-            <!-- Item 1 -->
+      
             <li class="item-carrinho">
               <div class="item-carrinho__foto" role="img" aria-label="Foto da pizza Margherita">
                 <span aria-hidden="true">🍕</span>
@@ -93,7 +88,7 @@
               </div>
             </li>
 
-            <!-- Item 2 -->
+            
             <li class="item-carrinho">
               <div class="item-carrinho__foto item-carrinho__foto--bebida" role="img" aria-label="Foto da Coca-Cola 2L">
                 <span aria-hidden="true">🥤</span>
@@ -118,7 +113,7 @@
           <a class="link-continuar" href="index.html">&larr; Continuar comprando no cardápio</a>
         </section>
 
-        <!-- Observações gerais do pedido -->
+        
         <section class="cartao">
           <div class="campo">
             <label for="obs-pedido">Observações do pedido</label>
@@ -128,10 +123,10 @@
 
       </div>
 
-      <!-- Coluna Direita: Pagamento e Resumo Lateral -->
+     
       <div class="carrinho-coluna resumo-lateral">
 
-        <!-- Opções de Pagamento -->
+        
         <section class="cartao pagamento">
           <fieldset class="pagamento__opcoes">
             <legend>Forma de Pagamento</legend>
@@ -161,14 +156,14 @@
             </label>
           </fieldset>
 
-          <!-- Campo condicional de Troco (aparece via CSS quando Dinheiro está selecionado) -->
+          
           <div class="campo campo-troco">
             <label for="troco">Troco para quanto?</label>
             <input type="text" id="troco" placeholder="Ex: R$ 100,00">
           </div>
         </section>
 
-        <!-- Resumo de Valores -->
+        
         <section class="cartao">
           <h2 class="subtitulo-bloco">Resumo dos Valores</h2>
 
@@ -187,7 +182,7 @@
             </div>
           </dl>
 
-          <!-- Botão de Ação -->
+          
           <button type="button" class="btn btn--primario btn--bloco btn--grande" style="margin-top: 1.25rem;">
             Finalizar Pedido
           </button>
@@ -201,9 +196,7 @@
 
   </main>
 
-  <!-- =====================================================================
-       FOOTER / RODAPÉ
-       ===================================================================== -->
+  
   <footer class="rodape">
     <div class="rodape__conteudo">
       <div>
