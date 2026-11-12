@@ -16,7 +16,7 @@ function cabecalho(string $pagina, string $titulo, string $descricao): void
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="<?= $descricao ?>">
-  <title> 🍕 Parada da Pizza | <?= e($titulo) ?></title>
+  <title>Sabor &amp; Massa | <?= e($titulo) ?></title>
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@ function cabecalho(string $pagina, string $titulo, string $descricao): void
 
   <header class="cabecalho">
     <div class="cabecalho__conteudo">
-      <a class="logo" href="index.php">🍕 Parada da Pizza</a>
+      <a class="logo" href="index.php">🍕 Sabor &amp; Massa</a>
 
       <nav aria-label="Menu principal">
         <ul class="menu__lista">
@@ -41,14 +41,6 @@ function cabecalho(string $pagina, string $titulo, string $descricao): void
           <li><a class="menu__link" href="<?= $arquivo ?>"><?= $rotulo ?></a></li>
 <?php endif; ?>
 <?php endforeach; ?>
-          <li class="menu__tema">
-            <input type="checkbox" id="tema-escuro" class="tema__input sr-only">
-            <label class="tema__botao" for="tema-escuro" title="Alternar tema claro/escuro">
-              <span class="sr-only">Alternar tema escuro</span>
-              <span aria-hidden="true">☀️</span>
-              <span aria-hidden="true">🌙</span>
-            </label>
-          </li>
         </ul>
       </nav>
     </div>
@@ -63,7 +55,7 @@ function rodape(): void
   <footer class="rodape">
     <div class="rodape__conteudo">
       <div>
-        <p class="rodape__marca">🍕 Parada da Pizza</p>
+        <p class="rodape__marca">🍕 Sabor &amp; Massa</p>
         <p>Pizzas artesanais com entrega rápida. Massa fresca todos os dias.</p>
       </div>
       <div>
@@ -83,7 +75,7 @@ function rodape(): void
         </ul>
       </div>
     </div>
-    <p class="rodape__direitos">&copy; 2026 Parada da Pizza. Projeto acadêmico.</p>
+    <p class="rodape__direitos">&copy; 2026 Sabor &amp; Massa. Projeto acadêmico.</p>
   </footer>
 
 </body>

@@ -88,7 +88,14 @@ if (count($partes) > 1) {
 
 cabecalho('perfil.php', 'Perfil', 'Sabor & Massa - Gerencie seus dados, endereços e preferências.');
 ?>
-
+<li class="menu__tema">
+            <input type="checkbox" id="tema-escuro" class="tema__input sr-only">
+            <label class="tema__botao" for="tema-escuro" title="Alternar tema claro/escuro">
+              <span class="sr-only">Alternar tema escuro</span>
+              <span aria-hidden="true">☀️</span>
+              <span aria-hidden="true">🌙</span>
+            </label>
+          </li>
   <main class="conteudo">
 
     <div class="pagina-titulo">

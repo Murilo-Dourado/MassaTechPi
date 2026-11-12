@@ -40,7 +40,14 @@ $st_itens = $pdo->prepare(
 
 cabecalho('pedidos.php', 'Meus Pedidos', 'Sabor & Massa - Acompanhe e consulte seus pedidos.');
 ?>
-
+<li class="menu__tema">
+            <input type="checkbox" id="tema-escuro" class="tema__input sr-only">
+            <label class="tema__botao" for="tema-escuro" title="Alternar tema claro/escuro">
+              <span class="sr-only">Alternar tema escuro</span>
+              <span aria-hidden="true">☀️</span>
+              <span aria-hidden="true">🌙</span>
+            </label>
+          </li>
   <main class="conteudo">
 
     <div class="pagina-titulo">
@@ -85,7 +92,7 @@ cabecalho('pedidos.php', 'Meus Pedidos', 'Sabor & Massa - Acompanhe e consulte s
     $total = $subtotal + $pedido['taxa_entrega'];
 
     $status = $pedido['status'];
-    
+    // data-status e selo seguem o que o HTML usa: andamento / entregue / cancelado
     $grupo = ($status === 'entregue' || $status === 'cancelado') ? $status : 'andamento';
     $texto_selo = ($status === 'entregue') ? 'Entregue' : (($status === 'cancelado') ? 'Cancelado' : $etapas[$status]);
 ?>

@@ -28,7 +28,14 @@ $produtos = $pdo
 
 cabecalho('index.php', 'Cardápio', 'Sabor & Massa - Peça sua pizza favorita com entrega rápida.');
 ?>
-
+<li class="menu__tema">
+            <input type="checkbox" id="tema-escuro" class="tema__input sr-only">
+            <label class="tema__botao" for="tema-escuro" title="Alternar tema claro/escuro">
+              <span class="sr-only">Alternar tema escuro</span>
+              <span aria-hidden="true">☀️</span>
+              <span aria-hidden="true">🌙</span>
+            </label>
+          </li>
 
   <nav class="categorias" aria-label="Categorias do cardápio">
     <ul class="categorias__lista">
@@ -40,6 +47,7 @@ cabecalho('index.php', 'Cardápio', 'Sabor & Massa - Peça sua pizza favorita co
   </nav>
 
   <main class="conteudo">
+    
 
 
     <section class="banner" aria-labelledby="banner-titulo">
