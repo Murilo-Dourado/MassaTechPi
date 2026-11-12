@@ -2,7 +2,9 @@
 
 Site para pizzaria com **cardápio online** e **acompanhamento da localização do entregador**. O projeto surgiu de um problema real: o dono da pizzaria tinha dificuldade para enviar o cardápio aos clientes pelo WhatsApp.
 
-**Projeto:** MassaTechPI, 2º semestre
+Esse Projeto por enquanto é um Protótipo, mas a entrega oficial do site para o empreendedor será no 3º Semestre.
+
+**Projeto:** MassaTechPI, 2º Semestre
 
 ## Participantes
 
@@ -37,10 +39,10 @@ Site para pizzaria com **cardápio online** e **acompanhamento da localização 
 
 🚧 **Em desenvolvimento.**
 
-- [ ] Front-end (HTML e CSS): em andamento
+- [x] Front-end (HTML e CSS): Feito
 - [ ] Documentação: em andamento
 - [ ] JavaScript: a implementar
-- [ ] Back-end (PHP e MySQL): a implementar
+- [x] Back-end (PHP e MySQL): Feito
 
 ## Fluxo do sistema
 
