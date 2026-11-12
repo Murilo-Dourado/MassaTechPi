@@ -69,4 +69,4 @@ Esse Projeto por enquanto é um Protótipo, mas a entrega oficial do site para o
 
 ## Como executar
 
-Em breve. Este trecho será atualizado quando o back-end estiver funcionando.
+Em breve. Este trecho será atualizado quando o JavaScript estiver estabelecido.
