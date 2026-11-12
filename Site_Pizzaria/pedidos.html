@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sabor & Massa - Acompanhe e consulte seus pedidos.">
+  <title>Sabor &amp; Massa | Meus Pedidos</title>
+
+  <!-- Fonte Poppins (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos da aplicação -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       HEADER / NAVBAR FIXO
+       ===================================================================== -->
+  <header class="cabecalho">
+    <div class="cabecalho__conteudo">
+      <a class="logo" href="index.html">🍕 Sabor &amp; Massa</a>
+
+      <nav aria-label="Menu principal">
+        <ul class="menu__lista">
+          <li><a class="menu__link" href="index.html">Início</a></li>
+          <li><a class="menu__link" href="carrinho.html">Carrinho</a></li>
+          <li><a class="menu__link ativo" href="pedidos.html" aria-current="page">Meus Pedidos</a></li>
+          <li><a class="menu__link" href="perfil.html">Perfil</a></li>
+          <li class="menu__tema">
+            <input type="checkbox" id="tema-escuro" class="tema__input sr-only">
+            <label class="tema__botao" for="tema-escuro" title="Alternar tema claro/escuro">
+              <span class="sr-only">Alternar tema escuro</span>
+              <span aria-hidden="true">☀️</span>
+              <span aria-hidden="true">🌙</span>
+            </label>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       CONTEÚDO PRINCIPAL (MEUS PEDIDOS)
+       ===================================================================== -->
+  <main class="conteudo">
+
+    <div class="pagina-titulo">
+      <h1>Meus Pedidos</h1>
+      <p>Acompanhe o pedido em andamento e veja seu histórico.</p>
+    </div>
+
+    <div class="pedidos">
+
+      <!-- Filtros (funcionam só com CSS) -->
+      <fieldset class="pedidos__filtros">
+        <legend class="sr-only">Filtrar pedidos por status</legend>
+
+        <label class="filtro">
+          <input class="sr-only" type="radio" name="filtro" id="filtro-todos" checked>
+          Todos
+        </label>
+        <label class="filtro">
+          <input class="sr-only" type="radio" name="filtro" id="filtro-andamento">
+          Em andamento
+        </label>
+        <label class="filtro">
+          <input class="sr-only" type="radio" name="filtro" id="filtro-entregue">
+          Entregues
+        </label>
+        <label class="filtro">
+          <input class="sr-only" type="radio" name="filtro" id="filtro-cancelado">
+          Cancelados
+        </label>
+      </fieldset>
+
+      <div class="pedidos__lista">
+
+        <!-- Pedido 1: em andamento -->
+        <article class="cartao pedido" data-status="andamento" aria-labelledby="pedido-1048">
+          <header class="pedido__cabecalho">
+            <h2 class="pedido__numero" id="pedido-1048">
+              Pedido #1048
+              <span class="pedido__data">Hoje, às 19:42</span>
+            </h2>
+            <span class="selo-status selo-status--andamento">Em preparo</span>
+          </header>
+
+          <ol class="etapas" aria-label="Etapas do pedido">
+            <li class="etapa--ok">Pedido recebido</li>
+            <li class="etapa--atual" aria-current="step">Em preparo</li>
+            <li>Saiu para entrega</li>
+            <li>Entregue</li>
+          </ol>
+
+          <div class="pedido__corpo">
+            <ul class="pedido__itens">
+              <li>
+                <span>1x Margherita<small>Tamanho: Grande</small></span>
+                <span>R$ 42,90</span>
+              </li>
+              <li>
+                <span>1x Coca-Cola 2L<small>Tamanho: Único</small></span>
+                <span>R$ 12,00</span>
+              </li>
+            </ul>
+
+            <dl class="pedido__detalhes">
+              <div><dt>Pagamento</dt><dd>Pix</dd></div>
+              <div><dt>Entrega</dt><dd>Rua das Pizzas, 123</dd></div>
+              <div><dt>Taxa de entrega</dt><dd>R$ 7,00</dd></div>
+              <div class="pedido__total"><dt>Total</dt><dd>R$ 61,90</dd></div>
+            </dl>
+          </div>
+
+          <div class="pedido__acoes">
+            <a class="btn btn--primario btn--pequeno" href="#">Acompanhar entrega</a>
+            <a class="btn btn--neutro btn--pequeno" href="#">Preciso de ajuda</a>
+          </div>
+        </article>
+
+        <!-- Pedido 2: entregue -->
+        <article class="cartao pedido" data-status="entregue" aria-labelledby="pedido-1031">
+          <header class="pedido__cabecalho">
+            <h2 class="pedido__numero" id="pedido-1031">
+              Pedido #1031
+              <span class="pedido__data">02/11/2026, às 20:15</span>
+            </h2>
+            <span class="selo-status selo-status--entregue">Entregue</span>
+          </header>
+
+          <div class="pedido__corpo">
+            <ul class="pedido__itens">
+              <li>
+                <span>1x Quatro Queijos<small>Tamanho: Grande</small></span>
+                <span>R$ 46,90</span>
+              </li>
+              <li>
+                <span>1x Portuguesa<small>Tamanho: Grande</small></span>
+                <span>R$ 46,90</span>
+              </li>
+              <li>
+                <span>1x Coca-Cola 2L<small>Tamanho: Único</small></span>
+                <span>R$ 12,00</span>
+              </li>
+            </ul>
+
+            <dl class="pedido__detalhes">
+              <div><dt>Pagamento</dt><dd>Cartão na entrega</dd></div>
+              <div><dt>Entrega</dt><dd>Rua das Pizzas, 123</dd></div>
+              <div><dt>Taxa de entrega</dt><dd>R$ 7,00</dd></div>
+              <div class="pedido__total"><dt>Total</dt><dd>R$ 112,80</dd></div>
+            </dl>
+          </div>
+
+          <div class="pedido__acoes">
+            <a class="btn btn--secundario btn--pequeno" href="index.html">Pedir novamente</a>
+            <a class="btn btn--neutro btn--pequeno" href="#">Preciso de ajuda</a>
+          </div>
+        </article>
+
+        <!-- Pedido 3: cancelado -->
+        <article class="cartao pedido" data-status="cancelado" aria-labelledby="pedido-1019">
+          <header class="pedido__cabecalho">
+            <h2 class="pedido__numero" id="pedido-1019">
+              Pedido #1019
+              <span class="pedido__data">25/10/2026, às 21:03</span>
+            </h2>
+            <span class="selo-status selo-status--cancelado">Cancelado</span>
+          </header>
+
+          <p class="pedido__aviso">Este pedido foi cancelado antes do preparo e nenhum valor foi cobrado.</p>
+
+          <div class="pedido__corpo">
+            <ul class="pedido__itens">
+              <li>
+                <span>1x Frango com Catupiry<small>Tamanho: Grande</small></span>
+                <span>R$ 47,90</span>
+              </li>
+            </ul>
+
+            <dl class="pedido__detalhes">
+              <div><dt>Pagamento</dt><dd>Dinheiro</dd></div>
+              <div><dt>Entrega</dt><dd>Rua das Pizzas, 123</dd></div>
+              <div><dt>Taxa de entrega</dt><dd>R$ 7,00</dd></div>
+              <div class="pedido__total"><dt>Total</dt><dd>R$ 54,90</dd></div>
+            </dl>
+          </div>
+
+          <div class="pedido__acoes">
+            <a class="btn btn--secundario btn--pequeno" href="index.html">Pedir novamente</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER / RODAPÉ
+       ===================================================================== -->
+  <footer class="rodape">
+    <div class="rodape__conteudo">
+      <div>
+        <p class="rodape__marca">🍕 Sabor &amp; Massa</p>
+        <p>Pizzas artesanais com entrega rápida. Massa fresca todos os dias.</p>
+      </div>
+      <div>
+        <h3>Atendimento</h3>
+        <ul>
+          <li>Ter a dom, das 18h às 23h30</li>
+          <li>WhatsApp: (19) 99999-0000</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Navegue</h3>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="carrinho.html">Carrinho</a></li>
+          <li><a href="pedidos.html">Meus Pedidos</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="rodape__direitos">&copy; 2026 Sabor &amp; Massa. Projeto acadêmico.</p>
+  </footer>
+
+</body>
+</html>
