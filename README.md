@@ -40,7 +40,7 @@ Esse Projeto por enquanto é um Protótipo, mas a entrega oficial do site para o
 🚧 **Em desenvolvimento.**
 
 - [x] Front-end (HTML e CSS): Feito
-- [ ] Documentação: em andamento
+- [x] Documentação: Feito
 - [ ] JavaScript: a implementar
 - [x] Back-end (PHP e MySQL): Feito
 
